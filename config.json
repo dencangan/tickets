@@ -1,0 +1,8 @@
+{
+  "SECRET_KEY": "replace_this_later",
+  "HASHIDS_SALT": "zk4UcRMgy3jJBx0dVMn2dIy0",
+  "HASHIDS_LENGTH": 8,
+  "HASHIDS_ALPHABETS": "abcdefghijklmnopqrstuvwxyz0123456789",
+  "SQLALCHEMY_DATABASE_URI": "sqlite:///C:\\Users\\Dencan Gan\\event-manager\\database\\database.sqlite",
+  "SQLALCHEMY_TRACK_MODIFICATIONS": false
+}
