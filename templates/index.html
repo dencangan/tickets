@@ -5,7 +5,8 @@
     <div class="container text-center">
         <div class="row justify-row-center">
             <div class="col-12">
-                <h1 class="pb-5 pt-5">List of Events</h1>
+                <h1 class="pt-5 pb-3">Event Summary</h1>
+                <p class="pb-3">Events available and their redeemable ticket status.</p>
                 <button type="button" class="btn btn-primary" onClick="window.location.reload();">Refresh Tickets</button>
             </div>
             <div class="col-12 pt-5">
@@ -15,14 +16,14 @@
                       <th scope="col"><strong>Event Name</strong></th>
                         <th scope="col"><strong>Event Date</strong></th>
                         <th scope="col"><strong>Number of Tickets</strong></th>
-                        <th scope="col"><strong>Available Tickets</strong></th>
+                        <th scope="col"><strong>Redeemed</strong></th>
                     </tr>
                   </thead>
                   <tbody>
-                      {% for b in test %}
+                      {% for b in summary %}
                       <tr>
                         {% for c in b %}
-                            <td>{{ c }}</a></td>
+                            <td>{{ c }}</td>
                         {% endfor %}
                       </tr>
                       {% endfor %}
