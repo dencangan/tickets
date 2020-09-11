@@ -2,8 +2,8 @@ import os
 from routes import *
 from flask import Flask
 import flask_sqlalchemy
-import flask_migrate
 from hashids import Hashids
+import sqlite3
 
 app = Flask(__name__)
 app.register_blueprint(routes)
@@ -27,11 +27,13 @@ hashids = Hashids(salt=app.config['HASHIDS_SALT'],
                   min_length=app.config['HASHIDS_LENGTH'],
                   alphabet=app.config['HASHIDS_ALPHABETS'])
 
-# Ensure database schema is up to date.
-if os.path.exists('migrations'):
-    print('Uprading DB to latest version.')
-    with app.app_context():
-        flask_migrate.upgrade()
+# Create event table for the first time
+conn = sqlite3.connect("database.sqlite")
+cur = conn.cursor()
+cur.execute('''CREATE TABLE IF NOT EXISTS events (event_name TEXT, event_date TEXT, 
+event_tickets INTEGER, ticket_id INTEGER PRIMARY KEY, ticket_code TEXT, redeemed INTEGER);''')
+conn.commit()
+conn.close()
 
 if __name__ == '__main__':
     app.run(debug=False, port=5000, passthrough_errors=True)

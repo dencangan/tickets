@@ -176,11 +176,3 @@ def ticket_status(ticket_code):
     else:
         return jsonify(ticket_to_redeem.to_dict(orient="list"))
 
-
-def drop_table(c, tbl_name):
-    cursor = c.cursor()
-    q = f"DROP TABLE {tbl_name}"
-    cursor.execute(q)
-    c.close()
-
-
