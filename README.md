@@ -12,7 +12,6 @@ Setting up a python virtual environment
 For windows, use command prompt and cd to repository directory. Then enter "python mainApp.py".
 For mac, 
 
-The app is split into 3 main parts.
 
 ## Overview
 ### Flask forms and Database
@@ -29,19 +28,21 @@ The ticket codes are generated using hash identifiers (hashids). A hashid is a u
 
 For example, the first event created will have 5 tickets, identified as ticket #0 to #4. when we create the next event of another 5 tickets, the identifiers will be ticket #5 to #9. This increasing order will always ensure that which each identifier, a unique hashid will be generated and assigned to the ticket.
 
-## Home Page
+### Home Page
 This is where you can track the max amount of tickets set for an event and the amount of tickets redeemed.
 
-## Tickets Page 
+### Tickets Page 
 Here you can redeem a ticket, or check if the ticket is valid.
 By entering a ticket code in addition to the existing link it will return the jsonified data of the ticket, ie, tickets/<ticket_code>.
 
-## Events Page
+### Events Page
 In this page, you can:
 - Create a new event.
 - Delete an existing one.
 - Add tickets to an existing event.
 - View the ticket record table.
 
-### Limitations/Drawbacks I can see
+## Limitations
 To maintain simplicity, both event data and ticket code data are put in the same database table. If handling hundreds of events and thousands of tickets, it is more practical to have multiple tables containing different kinds of data, and a layer of concatenation to piece them together.
+
+If you have any issues, please contact me at dencan.gan@gmail.com
