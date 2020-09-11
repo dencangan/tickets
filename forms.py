@@ -1,20 +1,18 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField
-from wtforms.validators import DataRequired, Email, Length, NumberRange
+from wtforms import StringField, SubmitField, IntegerField
+from wtforms.validators import DataRequired, Length, NumberRange
 
 
 class CreateEvent(FlaskForm):
     event_name = StringField('Name of Event', validators=[
-        DataRequired(message='Please enter a valid event name.'),
-        Length(max=320, message='Your event name must be less than ' + str(320) + ' characters.')
+        DataRequired(message='Please enter a valid event name.')
     ])
-    event_date = StringField('Date of Event', validators=[
-        DataRequired(message='Please enter date of event.'),
-        Length(max=200, message="Your date must be less than " + str(200) + " characters.")
-    ])
+
+    event_date = IntegerField('Date of Event (Only integers allowed)', validators=[
+        DataRequired(message='Please number date.')])
+
     event_tickets = IntegerField('Set number of tickets', validators=[
-        DataRequired(message='Please number of tickets.'),
-        NumberRange(min=1,  max=500, message="Invalid number.")
+        DataRequired(message='Please number of tickets.')
     ])
     submit = SubmitField('Create Event')
 

@@ -4,7 +4,7 @@ from mainApp import db
 class Events(db.Model):
     __tablename__ = "events"
     event_name = db.Column(db.String())
-    event_date = db.Column(db.String())
+    event_date = db.Column(db.Integer())
     event_tickets = db.Column(db.Integer)
     ticket_id = db.Column(db.Integer, primary_key=True)
     ticket_code = db.Column(db.String())

@@ -8,10 +8,6 @@ Setting up a python virtual environment
 3. Get list of dependencies from 'requirements.txt' and use pip to install them: pip install -r requirements.txt
 4. Once the environment + packages are set up, enter 'git clone https://github.com/dencangan/tickets.git' in command prompt/powershell or git bash to clone remote repository to your local machine.
 5. Run 'mainApp.py' to launch the app.
-  
-For windows, use command prompt and cd to repository directory. Then enter "python mainApp.py".
-For mac, 
-
 
 ## Overview
 ### Flask forms and Database
@@ -43,6 +39,7 @@ In this page, you can:
 - View the ticket record table.
 
 ## Limitations
-To maintain simplicity, both event data and ticket code data are put in the same database table. If handling hundreds of events and thousands of tickets, it is more practical to have multiple tables containing different kinds of data, and a layer of concatenation to piece them together.
+- To maintain simplicity, both event data and ticket code data are put in the same database table. If handling hundreds of events and thousands of tickets, it is more practical to have multiple tables containing different kinds of data, and a layer of concatenation to piece them together.
+- To have a date picker instead of entering integers as dates
 
 If you have any issues, please contact me at dencan.gan@gmail.com
