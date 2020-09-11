@@ -11,7 +11,7 @@
 
             <div class="col-12 pb-3">
                 <h1 class="pt-5 pb-3">Create Event</h1>
-                <p class="pb-3">Backend Description: You can create an event here by specifying the name, date and number of tickets. When the event is created, a
+                <p class="pb-3">You can create an event here by specifying the name, date and number of tickets. When the event is created, a
                 list of unique hashid ticket codes will also be generated to correspond to the event.</p>
                 <form action="" method="post" novalidate>
                     {{ form_create.hidden_tag() }}
@@ -31,8 +31,7 @@
 
             <div class="col-12 pb-3">
                 <h1 class="pt-5 pb-3">Add Tickets to Existing Event</h1>
-                <p class="pb-3">Backend Description: You can create an event here by specifying the name, date and number of tickets. When the event is created, a
-                list of unique hashid ticket codes will also be generated to correspond to the event.</p>
+                <p class="pb-3">You can add tickets to an existing event here by entering the name of the event and number of tickets to add.</p>
                 <form action="" method="post" novalidate>
                     {{ form_add.hidden_tag() }}
                     <p>
@@ -47,7 +46,7 @@
 
             <div class="col-12 pb-3 pt-5">
                 <h1 class="pb-3">Delete Events</h1>
-                <p class="pb-2">You can delete events here.</p>
+                <p class="pb-2">You can delete existing events here.</p>
                 <form action="" method="post" novalidate>
                     {{ form_delete.hidden_tag() }}
                 <p>
@@ -61,7 +60,7 @@
 
             <div class="col-12 pt-5 pb-3">
                 <h1 class="pb-3">Ticket Table</h1>
-                <p class="pb-5">The below is a table of events available and their redeemable ticket status.</p>
+                <p class="pb-5">The below is a table of events available and their redeemable ticket status. You can see any changes reflected here.</p>
                 <table class="table text-center">
                   <thead>
                     <tr>

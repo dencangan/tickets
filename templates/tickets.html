@@ -13,7 +13,7 @@
 
             <div class="col-12">
                 <h1 class="pt-5 pb-3">Check Tickets</h1>
-                <p class="pb-3">Backend Description: Checks the status of the ticket (invalid, redeemed, not redeemed).
+                <p class="pb-3">Checks the status of the ticket (invalid, redeemed, not redeemed).
                     You can also enter the ticket code on top of the existing link to view the jsonified data of the ticket. For example, "check/{ticket_code}".</p>
                 <form action="" method="post" novalidate>
                     {{ form_check.hidden_tag() }}
@@ -27,9 +27,8 @@
 
             <div class="col-12">
                 <h1 class="pt-5 pb-3">Redeem Tickets</h1>
-                <p class="pb-3">Backend Description: Entering the unique hashid ticket code will redeem the code if it has not yet been redeemed,
-                    or will alert the user that the code has already been redeemed.
-                    Essentially it will check the database if the ticket of the status is already marked as redeemed.</p>
+                <p class="pb-3">Entering the unique hashid ticket code will redeem the code if it has not yet been redeemed,
+                    or will alert the user that the code has already been redeemed.</p>
                 <form action="" method="post" novalidate>
                     {{ form_redeem.hidden_tag() }}
                     <p>
