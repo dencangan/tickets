@@ -6,7 +6,6 @@ This is a rudimentary events and tickets manager designed using the Python flask
 Python 3.X
 
 ### Windows
-Setting up a python virtual environment 
 1. Create the virtual environment: python -m venv <YOUR-ENV-NAME>
 2. Activate the virtual environment: <YOUR-ENV-NAME>\Scripts\activate
 3. Get list of dependencies from 'requirements.txt' and use pip to install them: pip install -r requirements.txt
@@ -51,6 +50,6 @@ In this page, you can:
 
 ## Limitations
 - To maintain simplicity, both event data and ticket code data are put in the same database table. If handling hundreds of events and thousands of tickets, it is more practical to have multiple tables containing different kinds of data, and a layer of concatenation to piece them together.
-- To have a date picker instead of entering integers as dates
+- To have a date picker instead of entering integers as dates.
 
 If you have any issues, please contact me at dencan.gan@gmail.com
