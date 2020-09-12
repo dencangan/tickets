@@ -23,11 +23,11 @@ Python 3.X
 ### Flask forms and Database
 The app is form based, and with each submission of a form, a database query is executed to ensure the database is updated to reflect the changes we see in the app.
 
-The database used is SQLite3 for ease in portability and presenting concepts. There is only one table called "events" in the database which contains the event details as well as its ticket code. 
+The database used is SQLite3. There is only one table called "events" in the database which contains event details and ticket codes. 
 
-When a ticket is redeemed, the database will look for the specific code redeemed and update the row as 1 (redeemed) from the default of 0 (not redeemed) in the redeemed column.
+When a ticket is redeemed, the database will look for the specific code redeemed and update the row as 1 (redeemed) from the default of 0 (not redeemed) in the 'redeemed' column.
 
-The ticket table in the events page is the database table visualised in 2D form. Any query related actions on the app will reflect on this table. This serves as a tracker and tool to ensure the logic of the app is correct. It should be part of an admin page, hidden away from the public.
+The ticket table in the 'events' page is the database table visualised in 2D form. Any query related actions on the app will reflect on this table. This serves as a tracker and tool to ensure the logic of the app is correct.
 
 ### Ticket Codes and Hash Identifiers
 The ticket codes are generated using hash identifiers (hashids). A hashid is a unique string of characters, generated for each ticket when an event is created. This is to ensure no two events share the same ticket code. 
