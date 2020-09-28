@@ -5,6 +5,7 @@ This is a rudimentary events and tickets manager designed using the Python flask
 This app is dockerised. However, you can also set it up manually without docker following the instructions below in Windows or Mac.
 
 ## Docker
+https://hub.docker.com/repository/docker/dencangan/tickets
 
 ## Without Docker
 ### Required
