@@ -57,5 +57,3 @@ In this page, you can:
 ## Limitations
 - To maintain simplicity, both event data and ticket code data are put in the same database table. If handling hundreds of events and thousands of tickets, it is more practical to have multiple tables containing different kinds of data, and a layer of concatenation to piece them together.
 - To have a date picker instead of entering integers as dates.
-
-If you have any issues, please contact me at dencan.gan@gmail.com
