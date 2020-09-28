@@ -36,4 +36,4 @@ conn.commit()
 conn.close()
 
 if __name__ == '__main__':
-    app.run(debug=False, port=5000, passthrough_errors=True)
+    app.run(host='0.0.0.0', debug=True)
