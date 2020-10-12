@@ -7,24 +7,6 @@ This app is dockerised. However, you can also set it up manually without docker 
 ## Docker
 https://hub.docker.com/repository/docker/dencangan/tickets
 
-## Without Docker
-### Required
-Python 3.X
-
-### Windows
-1. Create the virtual environment: python -m venv <YOUR-ENV-NAME>
-2. Activate the virtual environment: <YOUR-ENV-NAME>\Scripts\activate
-3. Get list of dependencies from 'requirements.txt' and use pip to install them: pip install -r requirements.txt
-4. Once the environment + packages are set up, enter 'git clone https://github.com/dencangan/tickets.git' in command prompt/powershell or git bash to clone remote repository to your local machine.
-5. Open command prompt and cd to repo directory. Enter "python mainApp.py".
-
-### Mac
-1. Clone repository by entering 'git clone https://github.com/dencangan/tickets.git' in terminal. Then chdir to the cloned repo.
-2. Enter "python3 -m venv env" to create virtual environment. Run "python3 -m pip install --user virtualenv" if you need to install virtual environment.
-3. Enter "source env/bin/activate" to activate virtual environment.
-4. Enter "pip install -r requirements.txt" to install required packages.
-5. Run app by entering "python ./mainApp.py".
-
 ## Overview
 ### Flask forms and Database
 The app is form based, and with each submission of a form, a database query is executed to ensure the database is updated to reflect the changes we see in the app.
