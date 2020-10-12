@@ -1,10 +1,8 @@
 # Tickets and Events Manager App
 This is a rudimentary events and tickets manager designed using the Python flask framework with RESTful API implementation.
 
-## Set Up and Run
-This app is dockerised. However, you can also set it up manually without docker following the instructions below in Windows or Mac.
-
 ## Docker
+This app is dockerised. However, you can also set it up manually without docker following the instructions below in Windows or Mac (see wiki page).
 https://hub.docker.com/repository/docker/dencangan/tickets
 
 ## Overview
