@@ -1,11 +1,16 @@
-from . import routes
-from forms import CreateEvent, DeleteEvents, AddTickets, RedeemTickets, CheckTickets
+from app.main import bp as routes
+from hashids import Hashids
+from config import Config
+from app.forms import CreateEvent, DeleteEvents, AddTickets, RedeemTickets, CheckTickets
 from flask import render_template, jsonify, redirect, url_for
-from mainApp import hashids
 import sqlite3
 import pandas as pd
 import numpy as np
 
+
+hash_config = Hashids(salt=Config.HASHIDS_SALT,
+                      min_length=Config.HASHIDS_LENGTH,
+                      alphabet=Config.HASHIDS_ALPHABETS)
 
 @routes.route('/')
 @routes.route('/home')
@@ -33,7 +38,7 @@ def event_page():
         conn.commit()
         conn.close()
         print(f"Event deleted: {event_name}")
-        return redirect(url_for("routes.event_page"))
+        return redirect(url_for("main.event_page"))
 
     elif form_create.validate_on_submit():
         print("Creating a new event.")
@@ -57,7 +62,7 @@ def event_page():
         # Create new chunk of tickets
         for n in range(start, end):
             print(n)
-            tix_code = hashids.encode(n)
+            tix_code = hash_config.encode(n)
             print(tix_code)
             query = f"""INSERT INTO events(event_name, event_date, event_tickets, ticket_id, ticket_code, redeemed) VALUES('{en}', '{ed}', {et}, {n}, '{tix_code}', {0});"""
             cur.execute(query)
@@ -65,7 +70,7 @@ def event_page():
             print(f"Entry number {n} created for {en}")
 
         conn.close()
-        return redirect(url_for("routes.event_page"))
+        return redirect(url_for("main.event_page"))
 
     elif form_add.validate_on_submit():
         conn = sqlite3.connect("database.sqlite")
@@ -95,12 +100,12 @@ def event_page():
                 print(n)
                 cur.execute(f"UPDATE events SET event_tickets = {et} WHERE event_name = '{en}';")
                 conn.commit()
-                query = f"""INSERT INTO events(event_name, event_date, event_tickets, ticket_id, ticket_code, redeemed) VALUES('{en}', '{ed}', {et}, {n}, '{hashids.encode(n)}', {0});"""
+                query = f"""INSERT INTO events(event_name, event_date, event_tickets, ticket_id, ticket_code, redeemed) VALUES('{en}', '{ed}', {et}, {n}, '{hash_config.encode(n)}', {0});"""
                 cur.execute(query)
                 conn.commit()
 
         conn.close()
-        return redirect(url_for("routes.event_page"))
+        return redirect(url_for("main.event_page"))
 
     else:
         conn = sqlite3.connect("database.sqlite")
