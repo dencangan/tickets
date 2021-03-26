@@ -2,8 +2,9 @@
 This is a rudimentary events and tickets manager designed using the Python flask framework with RESTful API implementation.
 
 ## Run - Docker
-This app is dockerised. However, you can also set it up manually without docker following the instructions below in Windows or Mac (see wiki page).
+This app is dockerised. However, you can also set it up manually without docker following the instructions below in Windows or Mac (see wiki page). See end of README for additional docker notes.
 https://hub.docker.com/repository/docker/dencangan/tickets
+
 
 ## Run - Without Docker 
 ### Windows
@@ -42,3 +43,37 @@ In this page, you can:
 ## Limitations
 - To maintain simplicity, both event data and ticket code data are put in the same database table. If handling hundreds of events and thousands of tickets, it is more practical to have multiple tables containing different kinds of data, and a layer of concatenation to piece them together.
 - To have a date picker instead of entering integers as dates.
+
+## Additional Docker notes when dockerising the app
+1. Clone the repository from Github.
+2. Open powershell and cd to repository directory.
+3. Create Dockerfile and open up with any editor and enter the following:
+
+FROM python:3.7
+WORKDIR /tickets
+COPY . .
+RUN pip install -r requirements.txt
+EXPOSE 5000
+CMD ["python", "mainApp.py"]
+
+### Build the image
+docker build --tag {imagename:tag} .
+
+### Run the app and test it
+docker run -p 5000:5000 {imagename:tag}
+
+### Pushing image to Docker Hub
+docker tag bulletinboard:1.0 {Your Docker ID}/{imagename:tag}
+
+docker push {Your Docker ID}/{imagename:tag}
+
+### Deleting images
+Ensure no containers are running.
+docker images -a
+docker rmi {imagename:tag}
+
+### Delete all images
+docker system prune -a
+
+### Delete container
+docker rm --force {imagename:tag}
